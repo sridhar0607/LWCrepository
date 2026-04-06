@@ -1,0 +1,41 @@
+<template>
+
+<div class="container">
+
+<h2>🎂 Today's Birthdays</h2>
+
+<template if:true={todayContacts}>
+<template for:each={todayContacts} for:item="contact">
+
+<div key={contact.Id} class="card">
+
+<div class="name">{contact.Name}</div>
+
+<lightning-button
+label="Send Wishes 🎉"
+data-id={contact.Id}
+data-email={contact.Email}
+data-name={contact.Name}
+onclick={sendWish}>
+</lightning-button>
+
+</div>
+
+</template>
+</template>
+
+<h2>🎈 Upcoming Birthdays (Next 30 Days)</h2>
+
+<template for:each={nextContacts} for:item="contact">
+
+<div key={contact.Id} class="card upcoming">
+
+{contact.Name} - {contact.Birthdate}
+
+</div>
+
+</template>
+
+</div>
+
+</template>

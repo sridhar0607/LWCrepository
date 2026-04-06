@@ -1,0 +1,69 @@
+/* HEADER */
+.header-section {
+    background: #f4f6f9;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+/* COMBOBOX */
+.combobox-wrapper {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+lightning-combobox {
+    width: 100%;
+}
+
+/* NEW FILTER */
+.new-filter-container {
+    margin-top: 9px;
+}
+
+.new-filter-link {
+    color: #0176d3;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.new-filter-link:hover {
+    text-decoration: underline;
+}
+
+/* SEARCH BUTTON */
+.search-btn-container {
+    margin-top: 14px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* MODAL WIDTH */
+.custom-modal .slds-modal__container {
+    max-width: 65rem !important;
+    width: 65% !important;
+    border-radius: 20px;
+}
+
+/* MODAL CONTENT */
+.slds-modal__content {
+    padding: 20px !important;
+}
+
+/* FIELD SPACING */
+.slds-modal__content .slds-col {
+    margin-bottom: 10px;
+}
+
+/* FOOTER BUTTONS */
+.custom-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px; /* spacing between buttons */
+    padding: 16px;
+}
+
+/* BUTTON SIZE */
+lightning-button {
+    min-width: 90px;
+}

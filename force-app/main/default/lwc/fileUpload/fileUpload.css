@@ -1,0 +1,56 @@
+.container{
+    padding:40px;
+    display:flex;
+    justify-content:center;
+}
+
+.header{
+    background:linear-gradient(90deg,#0070d2,#00a1e0);
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+.upload-box{
+    padding:40px;
+}
+
+.upload-area{
+    border:2px dashed #0070d2;
+    padding:60px;
+    text-align:center;
+    border-radius:10px;
+    background:#f4f6f9;
+}
+
+.upload-title{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.file-info{
+    margin-top:10px;
+    color:#666;
+    font-size:13px;
+}
+
+.spinner-section{
+    margin-top:20px;
+    text-align:center;
+}
+
+.success-box{
+    margin-top:20px;
+    padding:12px;
+    background:#d4edda;
+    color:#155724;
+    border-radius:6px;
+    text-align:center;
+    font-weight:bold;
+}
+
+/* Hide "or drop files" text */
+.slds-file-selector__text{
+    display:none;
+}

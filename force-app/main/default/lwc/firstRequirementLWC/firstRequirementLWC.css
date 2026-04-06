@@ -1,0 +1,11 @@
+lightning-card {
+    border-radius: 10px;
+}
+
+.slds-grid {
+    align-items: end;
+}
+
+lightning-button {
+    margin-left: 10px;
+}

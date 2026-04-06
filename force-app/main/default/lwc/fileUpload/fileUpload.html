@@ -1,0 +1,56 @@
+<template>
+    <div class="container">
+
+```
+    <lightning-card>
+
+        <!-- Header -->
+        <div class="header">
+            <h1>📁 File Upload Portal</h1>
+            <p>Upload your documents securely</p>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="upload-box">
+
+            <div class="upload-area">
+
+                <p class="upload-title">Select your document</p>
+
+                <lightning-file-upload
+                    label="Choose File"
+                    name="fileUploader"
+                    accept=".pdf,.png,.jpg,.txt"
+                    record-id={recordId}
+                    onuploadfinished={handleUploadFinished}>
+                </lightning-file-upload>
+
+                <p class="file-info">
+                    Supported formats: PDF, PNG, JPG, TXT
+                </p>
+
+            </div>
+
+            <!-- Spinner -->
+            <template if:true={isUploading}>
+                <div class="spinner-section">
+                    <lightning-spinner alternative-text="Processing"></lightning-spinner>
+                    <p>Processing file...</p>
+                </div>
+            </template>
+
+            <!-- Success Message -->
+            <template if:true={uploadSuccess}>
+                <div class="success-box">
+                    ✅ File uploaded successfully!
+                </div>
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</div>
+```
+
+</template>

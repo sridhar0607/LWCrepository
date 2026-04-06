@@ -1,0 +1,197 @@
+<template>
+    <div class="main-container">
+
+        <lightning-card title="Customer Search" icon-name="standard:account">
+
+            <!-- HEADER SECTION -->
+            <div class="header-section">
+
+                <!-- Combobox -->
+                <div class="combobox-wrapper">
+                    <lightning-combobox
+                        name="View"
+                        label="List View"
+                        value={value}
+                        placeholder="Select Saved Filter"
+                        options={options}
+                        onchange={handleChange}>
+                    </lightning-combobox>
+                </div>
+
+                <!-- New Filter -->
+                <div class="new-filter-container">
+                    <span class="new-filter-link" onclick={handleNewFilter}>
+                        New Filter
+                    </span>
+                </div>
+
+                <!-- Search Button -->
+                <!-- <div class="search-btn-container">
+                    <lightning-button
+                        label="Search"
+                        variant="brand"
+                        icon-name="utility:search"
+                        onclick={handleSearch}
+                        disabled={isSearchDisabled}>
+                    </lightning-button>
+                </div> -->
+
+            </div>
+
+            <!-- FILTER MODAL -->
+            <template if:true={isFilterModalOpen}>
+                <section role="dialog" class="slds-modal slds-fade-in-open custom-modal">
+                    <div class="slds-modal__container">
+
+                        <!-- Header -->
+                        <header class="slds-modal__header">
+                            <h2 class="slds-text-heading_medium">New Filter</h2>
+                        </header>
+
+                        <!-- Body -->
+                        <div class="slds-modal__content">
+
+                            <div class="slds-grid slds-wrap slds-gutters">
+                                <div class="slds-col slds-size_1-of-1">
+    <lightning-input 
+        type="text"
+        name="filterName"
+        label="Filter Name"
+        value={filterName}
+        placeholder="Enter filter name"
+        onchange={handleChange}>
+    </lightning-input>
+</div>
+
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                                    <lightning-combobox
+                                        name="fieldValue"
+                                        label="Field"
+                                        value={fieldValue}
+                                        options={fieldOptions}
+                                        onchange={handleChange}>
+                                    </lightning-combobox>
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                                    <lightning-combobox
+                                        name="operatorValue"
+                                        label="Operator"
+                                        value={operatorValue}
+                                        options={operatorOptions}
+                                        onchange={handleChange}>
+                                    </lightning-combobox>
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                                    <lightning-input 
+                                        type="text"
+                                        name="inputValue"
+                                        label="Enter Value"
+                                        value={inputValue}
+                                        onchange={handleChange}>
+                                    </lightning-input>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Footer -->
+                        <footer class="slds-modal__footer custom-footer">
+                            <lightning-button 
+                                label="Cancel" 
+                                onclick={closeFilterModal}>
+                            </lightning-button>
+
+                            <lightning-button 
+                                variant="brand" 
+                                label="Save" 
+                                onclick={handleSave}>
+                            </lightning-button>
+                        </footer>
+
+                    </div>
+                </section>
+
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </template>
+
+            <!-- TABLE -->
+            <template if:true={showTable}>
+                <div class="slds-p-around_medium" style="height:400px; overflow:auto;" onscroll={handleScroll}>
+                    <lightning-datatable
+                        key-field="Id"
+                        data={records}
+                        columns={columns}
+                        onrowselection={handleRowSelection}>
+                    </lightning-datatable>
+                </div>
+            </template>
+            
+            <template if:false={hasMoreData}>
+    <p style="text-align:center; padding:10px; color:gray;">
+        No more records
+    </p>
+</template>
+
+            <template if:true={showAssign}>
+    <div class="assign-container slds-p-around_medium">
+        <lightning-button 
+            label="Assign"
+            variant="brand"
+            onclick={handleAssign}>
+        </lightning-button>
+    </div>
+</template>
+
+<!-- ASSIGN USER MODAL -->
+<template if:true={isModalOpen}>
+    <section role="dialog" class="slds-modal slds-fade-in-open custom-modal">
+        <div class="slds-modal__container">
+
+            <!-- Header -->
+            <header class="slds-modal__header">
+                <h2 class="slds-text-heading_medium">Select User</h2>
+            </header>
+
+            <!-- Body -->
+            <div class="slds-modal__content slds-p-around_medium">
+
+                <lightning-datatable
+                    key-field="Id"
+                    data={users}
+                    columns={userColumns}
+                    onrowselection={handleUserSelection}>
+                </lightning-datatable>
+
+            </div>
+
+            <!-- Footer -->
+            <footer class="slds-modal__footer custom-footer">
+
+                <!-- Cancel Button -->
+                <lightning-button 
+                    label="Cancel" 
+                    onclick={closeModal}>
+                </lightning-button>
+
+                <!-- Assign Button -->
+                <lightning-button 
+                    variant="brand" 
+                    label="Assign Member" 
+                    onclick={assignUser}
+                    disabled={isAssignDisabled}>
+                </lightning-button>
+
+            </footer>
+
+        </div>
+    </section>
+
+    <!-- Backdrop -->
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+        </lightning-card>
+    </div>
+</template>

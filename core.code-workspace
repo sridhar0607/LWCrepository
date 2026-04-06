@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "c:/Users/Sri/FirstLWCcomponent"
+    }
+  ],
+  "settings": {
+    "eslint.workingDirectories": [
+      "c:/Users/Sri/FirstLWCcomponent"
+    ],
+    "eslint.validate": [
+      "javascript",
+      "typescript"
+    ],
+    "eslint.options": {
+      "overrideConfigFile": "c:\\Users\\Sri\\FirstLWCcomponent\\.eslintrc.json"
+    }
+  }
+}

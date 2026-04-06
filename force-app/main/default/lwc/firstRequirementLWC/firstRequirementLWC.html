@@ -1,0 +1,42 @@
+<template>
+   <lightning-card title="Search Records" icon-name="standard:account">
+
+        <div class="slds-p-around_medium">
+
+            <div class="slds-grid slds-gutters slds-align_absolute-center">
+
+                <div class="slds-col slds-size_3-of-4">
+                    <lightning-input 
+                        type="text"
+                        label="Enter Reference Number or Name"
+                        placeholder="Search by Name or Reference Number..."
+                        onchange={handleChange}>
+                    </lightning-input>
+                </div>
+
+                <div class="slds-col slds-m-top_large">
+                    <lightning-button 
+                        variant="brand"
+                        label="Search"
+                        icon-name="utility:search"
+                        onclick={handleSearch}>
+                    </lightning-button>
+                </div>
+
+            </div>
+
+        </div>
+<template if:true={showTable}>
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+
+            <lightning-datatable
+                key-field="Id"
+                data={records}
+                columns={columns}
+                hide-checkbox-column="false">
+            </lightning-datatable>
+
+        </div>
+</template>
+    </lightning-card>
+</template>
